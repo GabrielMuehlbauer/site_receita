@@ -1,0 +1,29 @@
+/* Importação das Fontes */
+/* Anton */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-display: swap;
+  font-weight: bold;
+  src: url('../fonts/Anton/Anton-Regular.ttf') format('truetype');
+}
+
+/* Inclusive Sans */
+@font-face {
+  font-family: 'Inclusive Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 800;
+  src: url('../fonts/Inclusive_Sans/InclusiveSans-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Para o estilo itálico, com todos os pesos de 300 a 800 */
+@font-face {
+  font-family: 'Inclusive Sans';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300 800;
+  src: url('../fonts/Inclusive_Sans/InclusiveSans-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+/*----------*/
