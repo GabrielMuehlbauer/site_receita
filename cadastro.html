@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Início</a> |
+      <a href="login.html">Já tenho conta</a>
+    </nav>
+  </header>
+
+  <h1>Cadastro de Usuário</h1>
+  <form id="cadastroForm">
+    <label>Nome<br>
+      <input type="text" name="nome" placeholder="Nome" required>
+    </label><br>
+
+    <label>E-mail<br>
+      <input type="email" name="email" placeholder="E-mail" required>
+    </label><br>
+
+    <label>Data de nascimento<br>
+      <input type="date" name="data_nascimento" required>
+    </label><br>
+
+    <label>CEP<br>
+      <input type="text" name="cep" placeholder="XXXXX-XXX" required pattern="\d{5}-\d{3}">
+    </label><br>
+
+    <label>Gênero<br>
+      <select name="genero" required>
+        <option value="" disabled selected>Selecione o gênero</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </label><br>
+
+    <label>Senha<br>
+      <input type="password" name="senha" placeholder="Senha" required minlength="6">
+    </label><br>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <div id="mensagem"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
