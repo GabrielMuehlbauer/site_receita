@@ -27,27 +27,28 @@
 }
 
 /*----------*/
-/* Cadastro e Login */
-/* ---------- RESET GLOBAL ---------- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+:root {
+  --deep-reddish-brown: #400101;
+  --soft-orange: #F29849;
+  --dark-orange: #A62F03;
+  --mustard: #D9A404;
 }
- 
+
 body {
   font-family: 'Inclusive Sans', sans-serif;
   background-color: #fff;
   color: #333;
 }
+
+/* Cadastro e Login */
  
 /* ---------- CABEÇALHO GERAL ---------- */
 header {
   width: 100%;
-  background-color: #ff7a00;
+  background-color: #400101;
   padding: 15px 0;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
  
 header nav a {
