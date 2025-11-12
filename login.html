@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
+  <!-- Link para o reset.css -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <!-- Link para o style.css -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Início</a> |
-      <a href="cadastro.html">Criar conta</a>
-    </nav>
-  </header>
+  <div class="login-display">
+    <div class="login-content">
+      <h1>QUASE TUDO GOSTOSO</h1>
+      <form id="login-form">
 
-  <h1>Login de Usuário</h1>
-  <form id="loginForm">
-    <label>E-mail<br>
-      <input type="email" name="email" placeholder="E-mail" required>
-    </label><br>
+        <div class="email-login">
+          <label for="input-email-login">E-mail:</label>
+          <input id="input-email-login" type="email" name="email" placeholder="Digite o seu e-mail" required>
+        </div>
 
-    <label>Senha<br>
-      <input type="password" name="senha" placeholder="Senha" required>
-    </label><br>
+        <div class="password-login">
+          <label for="input-password-login">Senha:</label>
+          <input id="input-password-login" type="password" name="senha" placeholder="Digite a sua senha" required>
+        </div>
 
-    <button type="submit">Entrar</button>
-  </form>
+        <a id="enter-button" href="index.html">Entrar</a>
 
-  <div id="mensagem"></div>
+        <p>Se você não possui uma conta</p>
+        <a id="register-button" href="cadastro.html">Cadastre-se</a>
+      </form>
+
+    </div>
+  </div>
 
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>

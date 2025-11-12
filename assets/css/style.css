@@ -28,198 +28,112 @@
 
 /*----------*/
 
+/*Criação de Variáveis CSS para cores*/
 :root {
-  --deep-reddish-brown: #400101;
-  --soft-orange: #F29849;
-  --dark-orange: #A62F03;
-  --mustard: #D9A404;
+  --dark-gray: #262626;
+  --faded-brown: #7a472c;
+  --olive-green: #727040;
+  --pastel-orange: #ffb97a;
+  --pastel-grayish-orange: #d3b9a1;
+  --light-orange: #efdece;
+  --light-orange-light: #f5f1ed;
+}
+
+/* Configurações Iniciais */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Inclusive Sans', sans-serif;
-  background-color: #fff;
-  color: #333;
+  background-color: var(--light-orange-light);
+  color: var(--faded-brown);
 }
 
-/* Cadastro e Login */
- 
-/* ---------- CABEÇALHO GERAL ---------- */
-header {
-  width: 100%;
-  background-color: #400101;
-  padding: 15px 0;
-  text-align: center;
+::selection {
+  background-color: var(--faded-brown);
+  color: var(--light-orange);
 }
- 
-header nav a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: 0.3s;
-}
- 
-header nav a:hover {
-  color: #ffe0c2;
-}
- 
-/* ---------- TÍTULOS GERAIS ---------- */
-h1 {
-  font-family: 'Anton', sans-serif;
-  text-align: center;
-  color: #ff7a00;
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
- 
-/* ---------- FORMULÁRIOS GERAIS ---------- */
-form {
-  background-color: #fff;
-  max-width: 420px;
-  margin: 0 auto 40px auto;
-  padding: 30px 25px;
-  border-radius: 20px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-}
- 
-label {
-  display: block;
-  text-align: left;
-  color: #555;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
- 
-input,
-select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 18px;
-  font-size: 1rem;
-  transition: 0.3s;
-}
- 
-input:focus,
-select:focus {
-  border-color: #ff7a00;
-  outline: none;
-  box-shadow: 0 0 6px rgba(255, 122, 0, 0.4);
-}
- 
-button {
-  width: 100%;
-  background-color: #ff7a00;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 10px;
-  padding: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-}
- 
-button:hover {
-  background-color: #e76b00;
-}
- 
-/* ---------- MENSAGENS ---------- */
-#mensagem {
-  text-align: center;
-  color: #444;
-  font-size: 0.95rem;
-  margin-top: 15px;
-}
- 
-/* ---------- PÁGINAS DE LOGIN E CADASTRO ---------- */
-.auth-body {
-  background: linear-gradient(135deg, #ff7a00, #ffb347);
-  min-height: 100vh;
+
+/* Login */
+.login-display {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
- 
-.auth-header {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.15);
   text-align: center;
-  padding: 15px 0;
-  backdrop-filter: blur(10px);
+  justify-content: center;
 }
- 
-.auth-header nav a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: 0.3s;
+
+.login-content h1 {
+  font-family: "Anton";
+  font-size: 40px;
+  padding-bottom: 15px;
+  padding-top: 180px;
 }
- 
-.auth-header nav a:hover {
-  color: #ffe0c2;
+
+#login-form {
+  background-color: var(--light-orange);
+  width: 350px;
+  padding: 50px 25px;
+  border-radius: 30px;
+  border: 1px solid var(--faded-brown);
 }
- 
-.auth-container {
-  background-color: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  max-width: 420px;
-  width: 90%;
-  margin-top: 50px;
-}
- 
-.auth-title {
-  font-family: 'Anton', sans-serif;
-  color: #ff7a00;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-}
- 
-.auth-form label {
-  display: block;
+
+.email-login, .password-login {
   text-align: left;
-  margin-bottom: 0.8rem;
-  color: #555;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  margin: 10px 0 10px 0;
+  border: 1px solid var(--faded-brown);
+  border-radius: 50px;
+  font-family: "Inclusive Sans";
+  color: var(--dark-gray);
+  background-color: var(--light-orange-light);
+}
+
+#enter-button {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid var(--faded-brown);
+  background-color: var(--faded-brown);
+  color: var(--light-orange-light);
+  border-radius: 30px;
+  width: 80%;
+  font-family: "Inclusive Sans";
   font-weight: 600;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transition: all ease-in 0.2s;
 }
- 
-.auth-form input,
-.auth-form select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+
+#enter-button:hover {
+  background-color: var(--light-orange);
+  color: var(--faded-brown);
+}
+
+#register-button {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid var(--faded-brown);
+  background-color: var(--light-orange);
+  color: var(--faded-brown);
+  border-radius: 30px;
+  width: 80%;
+  font-family: "Inclusive Sans";
+  font-weight: 600;
+  font-size: 18px;
   margin-top: 5px;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  transition: 0.3s;
+  text-decoration: none;
+  transition: all ease-in 0.2s;
 }
- 
-.auth-form input:focus,
-.auth-form select:focus {
-  border-color: #ff7a00;
-  outline: none;
-  box-shadow: 0 0 6px rgba(255, 122, 0, 0.4);
-}
- 
-.auth-btn {
-  width: 100%;
-  background-color: #ff7a00;
-  border: none;
-  padding: 14px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
- 
-.auth-btn:hover {
-  background-color: #e76b00;
+
+#register-button:hover {
+  background-color: var(--pastel-orange);
+  color: var(--faded-brown);
 }
