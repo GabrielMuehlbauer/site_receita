@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,50 +10,56 @@
   <!-- Link para o style.css -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Início</a> |
-      <a href="login.html">Já tenho conta</a>
-    </nav>
-  </header>
 
-  <h1>Cadastro de Usuário</h1>
-  <form id="cadastroForm">
-    <label>Nome<br>
-      <input type="text" name="nome" placeholder="Nome" required>
-    </label><br>
+  <div class="register-display">
 
-    <label>E-mail<br>
-      <input type="email" name="email" placeholder="E-mail" required>
-    </label><br>
+    <div class="register-content">
+      <h1>CRIANDO UMA CONTA</h1>
+      <form id="register-form">
+        <div class="name-register">
+          <label for="input-name-register">Nome:</label>
+          <input id="input-name-register" type="text" name="name" placeholder="Digite o seu nome" required>
+        </div>
 
-    <label>Data de nascimento<br>
-      <input type="date" name="data_nascimento" required>
-    </label><br>
+        <div class="email-register">
+          <label for="input-email-register">E-mail:</label>
+          <input id="input-email-register" type="email" name="email" placeholder="Digite o seu e-mail" required>
+        </div>
 
-    <label>CEP<br>
-      <input type="text" name="cep" placeholder="XXXXX-XXX" required pattern="\d{5}-\d{3}">
-    </label><br>
+        <div class="date-register">
+          <label for="input-date-register">Data de Nascimento:</label>
+          <input id="input-date-register" type="date" name="data_nascimento" required>
+        </div>
 
-    <label>Gênero<br>
-      <select name="genero" required>
-        <option value="" disabled selected>Selecione o gênero</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Outro">Outro</option>
-      </select>
-    </label><br>
+        <div class="cep-register">
+          <label for="input-cep-register">CEP:</label>
+          <input id="input-cep-register" type="text" name="cep" placeholder="XXXXX-XXX" required pattern="\d{5}-\d{3}">
+        </div>
 
-    <label>Senha<br>
-      <input type="password" name="senha" placeholder="Senha" required minlength="6">
-    </label><br>
+        <div class="genero-register">
+          <label for="input-genero-register">Gênero:</label>
+          <select id="input-genero-register" name="genero" required>
+            <option value="" disabled selected>Selecione o gênero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
 
-    <button type="submit">Cadastrar</button>
-  </form>
+        <div class="password-register">
+          <label for="input-password-register">Senha:</label>
+          <input id="input-password-register" type="password" name="senha" placeholder="Digite a sua senha" required>
+        </div>
 
-  <div id="mensagem"></div>
+        <a id="register-button-sql" href="">Cadastrar</a>
+      </form>
+
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
+
 </html>

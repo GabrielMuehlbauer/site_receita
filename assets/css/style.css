@@ -137,3 +137,61 @@ input {
   background-color: var(--pastel-orange);
   color: var(--faded-brown);
 }
+
+/* Cadastrar */
+.register-display {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.register-content h1 {
+  font-family: "Anton";
+  font-size: 40px;
+  padding-bottom: 15px;
+  padding-top: 100px;
+}
+
+#register-form {
+  background-color: var(--light-orange);
+  width: 350px;
+  padding: 50px 25px;
+  border-radius: 30px;
+  border: 1px solid var(--faded-brown);
+}
+
+.name-register, .email-register, .date-register, .cep-register, .genero-register, .password-register {
+  text-align: left;
+}
+
+#register-button-sql {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid var(--faded-brown);
+  background-color: var(--faded-brown);
+  color: var(--light-orange);
+  border-radius: 30px;
+  width: 80%;
+  font-family: "Inclusive Sans";
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 5px;
+  text-decoration: none;
+  transition: all ease-in 0.2s;
+}
+
+#register-button-sql:hover {
+  background-color: var(--light-orange);
+  color: var(--faded-brown);
+}
+
+.genero-register select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 10px 0;
+  font-family: "Inclusive Sans";
+  border-radius: 30px;
+  background-color: var(--light-orange-light);
+  text-align: center;
+  margin-top: 5px;
+}
