@@ -52,6 +52,12 @@ body {
   color: var(--faded-brown);
 }
 
+main {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 ::selection {
   background-color: var(--faded-brown);
   color: var(--light-orange);
@@ -64,11 +70,16 @@ body {
   justify-content: center;
 }
 
+.login-content {
+  padding-top: 120px;
+  padding-bottom: 150px;
+}
+
+
 .login-content h1 {
   font-family: "Anton";
   font-size: 40px;
   padding-bottom: 15px;
-  padding-top: 180px;
 }
 
 #login-form {
@@ -145,11 +156,15 @@ input {
   justify-content: center;
 }
 
+.register-content {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
 .register-content h1 {
   font-family: "Anton";
   font-size: 40px;
   padding-bottom: 15px;
-  padding-top: 100px;
 }
 
 #register-form {
@@ -194,4 +209,69 @@ input {
   background-color: var(--light-orange-light);
   text-align: center;
   margin-top: 5px;
+}
+
+/* Página de Administração */
+.sub-header-admin h1 {
+  font-family: "Anton";
+  font-size: 36px;
+  color: var(--faded-brown);
+  text-align: left;
+  margin-top: 20px;
+}
+
+.sub-header-admin p {
+  font-family: "Inclusive Sans";
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.categoria-receita {
+  text-align: left;
+  background-color: var(--light-orange);
+  padding: 30px;
+  border: 1px solid var(--faded-brown);
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+.admin-content h2 {
+  font-family: "Anton";
+  font-size: 30px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.admin-content input {
+  width: 45%;
+}
+
+.admin-content button {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid var(--faded-brown);
+  background-color: var(--faded-brown);
+  color: var(--light-orange-light);
+  border-radius: 30px;
+  width: 30%;
+  font-family: "Inclusive Sans";
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transition: all ease-in 0.2s;
+}
+
+.admin-content button:hover {
+  background-color: var(--light-orange);
+  color: var(--faded-brown);
+}
+
+.refeicao {
+  text-align: left;
+  background-color: var(--light-orange);
+  padding: 30px;
+  border: 1px solid var(--faded-brown);
+  border-radius: 30px;
 }

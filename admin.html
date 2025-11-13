@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Administrador</title>
+    <!-- Link para o reset.css -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Link para o style.css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="admin-content">
+            <div class="sub-header-admin">
+                <h1>PÁGINA DO ADMINISTRADOR</h1>
+                <p>Bem vindo a página do administrador, aqui você poderá cadastrar uma refeição ou uma categoria de
+                    receita.
+                </p>
+            </div>
+
+            <section class="categoria-receita">
+                <div class="categoria-receita-content">
+                    <h2>Cadastrar Categoria de Receita</h2>
+                    <form id="admin-categoria-form">
+                        <label for="categoria-nome">Nome da Categoria:</label>
+                        <input type="text" id="categoria-nome" name="categoria-nome" required>
+
+                        <button type="submit">Cadastrar Categoria</button>
+                    </form>
+
+                    <div id="confirmacao-categoria" class="mensagem-confirmacao"></div>
+                </div>
+            </section>
+
+            <section class="refeicao">
+                <div class="refeicao-content">
+                    <h2>Cadastrar Refeição</h2>
+                    <form id="admin-refeicao-form">
+                        <label for="refeicao-nome">Nome da Refeição:</label>
+                        <input type="text" id="refeicao-nome" name="refeicao-nome" required>
+
+                        <button type="submit">Cadastrar Refeição</button>
+                    </form>
+
+                    <div id="confirmacao-refeicao" class="mensagem-confirmacao"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
