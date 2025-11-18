@@ -259,6 +259,7 @@ input {
 
 .admin-content {
   max-width: 940px;
+  margin: 0 20px;
 }
 
 .admin-content h2 {
