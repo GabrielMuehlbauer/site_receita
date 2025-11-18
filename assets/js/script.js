@@ -1,5 +1,3 @@
-// assets/js/script.js
-
 // --- Event Listener para o formulário de CADASTRO DE USUÁRIO ---
 const formCadastro = document.getElementById("register-form");
 const msgConfirmacaoCadastro = document.getElementById("confirmacao-cadastro");
@@ -108,3 +106,21 @@ if (formRefeicao) {
         }
     });
 }
+
+// --- Menu Lateral ---
+const sideMenu = document.getElementById("side-menu");
+const menuButton = document.getElementById("menu-button");
+
+menuButton.addEventListener("click", () => {
+    sideMenu.style.left = sideMenu.style.left === "0px" ? "-340px" : "0px";
+});
+
+// Adiciona um evento de clique ao documento para fechar o menu quando se clica fora dele
+document.addEventListener("click", (event) => {
+    const isClickInsideMenu = sideMenu.contains(event.target);
+    const isClickOnMenuButton = menuButton.contains(event.target);
+
+    if (sideMenu.style.left === "0px" && !isClickInsideMenu && !isClickOnMenuButton) {
+        sideMenu.style.left = "-340px";
+    }
+});

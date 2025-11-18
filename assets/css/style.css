@@ -300,6 +300,50 @@ header {
   justify-content: center;
 }
 
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -340px;
+  width: 340px;
+  background-color: var(--light-orange-light);
+  border: 1px solid var(--faded-brown);
+  border-radius: 0 30px 30px 0;
+  height: 100%;
+  transition: all ease-in 0.3s;
+  z-index: 1
+}
+
+.side-menu-content {
+  padding: 40px 25px;
+}
+
+.side-menu-content h4 {
+  font-family: "Anton";
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.side-menu-content a {
+  text-decoration: none;
+  color: var(--faded-brown);
+  font-family: "Inclusive Sans";
+  font-weight: 700;
+  background-color: var(--light-orange-light);
+  border: 1px solid var(--faded-brown);
+  border-radius: 30px;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  transition: all ease-in 0.2s;
+}
+
+.side-menu-content a:hover {
+  background-color: var(--light-orange);
+  padding: 10px 40px;
+  outline: 1px solid var(--faded-brown);
+}
+
 .header-content h1 {
   font-family: "Anton";
   font-size: 36px;
@@ -348,6 +392,13 @@ header {
   width: 50px;
   background-color: var(--light-orange-light);
   border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  border: 1px solid var(--faded-brown);
+}
+
+#menu-button img:hover {
+  outline: 1px solid var(--faded-brown);
 }
 
 .main-content {
@@ -355,7 +406,7 @@ header {
 }
 
 .banner-best-recipes {
-  display: block;
+  cursor: pointer;
   max-width: 100%;
   background-color: var(--light-orange);
   margin: 30px 0;
@@ -369,6 +420,7 @@ header {
 
 .banner-best-recipes:hover {
   background-color: var(--pastel-grayish-orange);
+  outline: 1px solid var(--faded-brown);
 }
 
 .banner-best-recipes h1 {
@@ -407,13 +459,14 @@ header {
 }
 
 .categoria-card {
+  cursor: pointer;
   background-color: var(--light-orange);
   height: 150px;
   border: 1px solid var(--faded-brown);
   border-radius: 30px;
   padding: 10px;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   rotate: -10deg;
   transition: all 0.3s ease-in;
@@ -427,6 +480,7 @@ header {
   font-family: "Anton";
   font-size: 25px;
   text-align: left;
+  float: left;
   text-transform: uppercase;
 }
 
@@ -434,6 +488,6 @@ header {
   object-fit: cover;
   border: 1px solid var(--faded-brown);
   border-radius: 10px 20px 20px 10px;
-  width: 36%;
+  width: 45%;
   height: 100%;
 }
