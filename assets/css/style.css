@@ -235,6 +235,11 @@ input {
   border-radius: 30px;
   margin-bottom: 20px;
 }
+
+.admin-content {
+  max-width: 940px;
+}
+
 .admin-content h2 {
   font-family: "Anton";
   font-size: 30px;
@@ -343,4 +348,92 @@ header {
   width: 50px;
   background-color: var(--light-orange-light);
   border-radius: 20px;
+}
+
+.main-content {
+  max-width: 940px;
+}
+
+.banner-best-recipes {
+  display: block;
+  max-width: 100%;
+  background-color: var(--light-orange);
+  margin: 30px 0;
+  padding: 30px;
+  border: 1px solid var(--faded-brown);
+  border-radius: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+.banner-best-recipes:hover {
+  background-color: var(--pastel-grayish-orange);
+}
+
+.banner-best-recipes h1 {
+  font-family: "Anton";
+  font-size: 95px;
+  color: var(--faded-brown);
+}
+
+.banner-best-recipes h3 {
+  font-family: "Anton";
+  font-size: 39px;
+  color: var(--olive-green);
+}
+
+.banner-best-recipes img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 200px;
+  margin-top: 20px;
+  border: 1px solid var(--faded-brown);
+}
+
+.categorias-receita-content h2 {
+  text-align: left;
+  font-family: "Anton";
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.grid-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.categoria-card {
+  background-color: var(--light-orange);
+  height: 150px;
+  border: 1px solid var(--faded-brown);
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  rotate: -10deg;
+  transition: all 0.3s ease-in;
+}
+
+.categoria-card:hover {
+  rotate: 0deg;
+}
+
+.categoria-card p {
+  font-family: "Anton";
+  font-size: 25px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.categoria-card img {
+  object-fit: cover;
+  border: 1px solid var(--faded-brown);
+  border-radius: 10px 20px 20px 10px;
+  width: 36%;
+  height: 100%;
 }
