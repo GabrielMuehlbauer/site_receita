@@ -403,6 +403,7 @@ header {
 
 .main-content {
   max-width: 940px;
+  margin: 0 20px;
 }
 
 .banner-best-recipes {
@@ -454,8 +455,8 @@ header {
 .grid-categorias {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-  margin: 20px 0;
+  gap: 20px;
+  margin: 30px 0;
 }
 
 .categoria-card {
@@ -474,6 +475,7 @@ header {
 
 .categoria-card:hover {
   rotate: 0deg;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .categoria-card p {
