@@ -1,6 +1,16 @@
-<h1>Site Quase Tudo Gostoso </h1>
+<h1>Site "Quase Tudo Gostoso"</h1>
+<h3>Desenvolvido por: Gabriel Müehlbauer, Gustavo Junio e Wagner Barbosa.</h3>
+
+<p>
+    Esse é um projeto acadêmico iniciado na segunda fase do curso superior de Análise e Desenvolvimento de Sistemas no Senac Joinville. (Em desenvolvimento).
+</p>
+
+<h2>Objetivo:</h2>
+<p>
+    Criar uma releitura do site de receitas "Tudo Gostoso" e possibilitar o cadastro de usuários, categorias de receitas e refeições em um banco de dados.
+</p>
  
-<h3>Instruções para funcionamento correto da aplicação web:</h3>
+<h2>Instruções para funcionamento correto da aplicação web com a integração ao banco de dados MySQL:</h2>
  
 <ol>
     <li>Garantir que tenha instalado o VS Code na maquina e esteja instalado a estensão "Live Server".</li>
