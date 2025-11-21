@@ -212,27 +212,6 @@ input {
 }
 
 /* Página de Administração */
-.return-button {
-  text-align: left;
-  margin: 20px;
-}
-
-.return-button a {
-  text-decoration: none;
-  color: var(--faded-brown);
-  font-family: "Inclusive Sans";
-  font-weight: 700;
-  padding: 10px 15px;
-  background-color: var(--light-orange-light);
-  border: 1px solid var(--faded-brown);
-  border-radius: 30px;
-  transition: all ease-in 0.2s;
-}
-
-.return-button a:hover {
-  background-color: var(--light-orange);
-}
-
 .sub-header-admin h1 {
   font-family: "Anton";
   font-size: 36px;
@@ -409,7 +388,7 @@ header {
   color: var(--faded-brown);
 }
 
-#menu-button img {
+.menu-button img {
   padding: 10px;
   width: 50px;
   background-color: var(--light-orange-light);
@@ -419,7 +398,7 @@ header {
   border: 1px solid var(--faded-brown);
 }
 
-#menu-button img:hover {
+.menu-button img:hover {
   outline: 1px solid var(--faded-brown);
 }
 

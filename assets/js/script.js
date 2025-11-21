@@ -108,8 +108,8 @@ if (formRefeicao) {
 }
 
 // --- Menu Lateral ---
-const sideMenu = document.getElementById("side-menu");
-const menuButton = document.getElementById("menu-button");
+const sideMenu = document.querySelector(".side-menu");
+const menuButton = document.querySelector(".menu-button");
 
 menuButton.addEventListener("click", () => {
     sideMenu.style.left = sideMenu.style.left === "0px" ? "-340px" : "0px";
