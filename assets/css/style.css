@@ -37,6 +37,7 @@
   --pastel-grayish-orange: #d3b9a1;
   --light-orange: #efdece;
   --light-orange-light: #f5f1ed;
+  --light-gray: #fafafa;
 }
 
 /* Configurações Iniciais */
@@ -44,6 +45,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+b {
+  font-weight: 700;
 }
 
 body {
@@ -493,4 +498,218 @@ header {
   border-radius: 10px 20px 20px 10px;
   width: 45%;
   height: 100%;
+}
+
+/* Página de Receita */
+.card-receita {
+  display: flex;
+  width: 940px;
+  background-color: var(--light-gray);
+  border: 1px solid var(--light-orange);
+  border-radius: 30px;
+  margin: 20px 0;
+  transition: all 0.2s ease-in;
+  cursor: pointer
+}
+
+.card-receita:hover {
+  border: 1px solid var(--faded-brown);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-receita-content {
+  width: 100%;
+  text-align: left;
+  padding: 30px;
+}
+
+.card-receita-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--faded-brown);
+  text-align: center;
+}
+
+.card-receita-content h1 {
+  font-family: "Anton";
+  text-transform: uppercase;
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+/* Página Detalhes */
+.receita {
+  display: flex;
+  width: 940px;
+  background-color: var(--light-gray);
+  border: 1px solid var(--light-orange);
+  border-radius: 30px;
+  margin: 20px 0;
+}
+
+.receita-content {
+  width: 100%;
+  text-align: left;
+  padding: 30px;
+}
+
+.receita-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--faded-brown);
+  text-align: center;
+}
+
+.receita-content h1 {
+  font-family: "Anton";
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.receita-content h2 {
+  font-family: "Anton";
+  text-transform: uppercase;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.receita-content h3 {
+  font-family: "Anton";
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--olive-green);
+}
+
+.ingredientes-receita li {
+  font-family: "Inclusive Sans";
+  font-size: 20px;
+  margin-bottom: 10px; 
+  list-style: circle;
+}
+
+.modo-preparo-receita p {
+  font-family: "Inclusive Sans";
+  width: 75%;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+  line-height: 1.3;
+}
+
+.detalhes-receita {
+  margin: 20px 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.informacoes-adicionais-receita {
+  display: flex;
+}
+
+.utensilios, .custo-cozinha {
+  border: 1px solid var(--pastel-grayish-orange);
+  padding: 15px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.custo-cozinha {
+  margin-left: 20px;
+}
+
+.custo-cozinha h3 {
+  text-align: left;
+}
+
+.escrever-comentario {
+  margin: 30px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.escrever-comentario textarea {
+  width: 100%;
+  height: 150px;
+  border: 1px solid var(--faded-brown);
+  border-radius: 20px;
+  padding: 15px;
+  font-family: "Inclusive Sans";
+  font-size: 18px;
+  resize: none;
+}
+
+#enviar-comentario {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid var(--faded-brown);
+  background-color: var(--faded-brown);
+  color: var(--light-orange-light);
+  border-radius: 30px;
+  text-align: center;
+  width: 40%;
+  font-family: "Inclusive Sans";
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all ease-in 0.2s;
+}
+
+#enviar-comentario:hover {
+  background-color: var(--light-orange);
+  color: var(--faded-brown);
+}
+
+/* Avaliação com Estrelas */
+.avaliacao-receita {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.estrelas {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.estrelas input[type="radio"] {
+  display: none;
+}
+
+.estrelas label {
+  color: var(--pastel-grayish-orange);
+  font-size: 50px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.estrelas label::before {
+  content: '★';
+}
+
+.estrelas input[type="radio"]:checked ~ label {
+  color: var(--faded-brown);
+}
+
+.estrelas label:hover,
+.estrelas label:hover ~ label {
+  color: var(--faded-brown);
+}
+
+.estrelas input[type="radio"]:checked + label,
+.estrelas input[type="radio"]:checked + label ~ label {
+  color: var(--faded-brown);
 }
