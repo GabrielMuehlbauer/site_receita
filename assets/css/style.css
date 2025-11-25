@@ -501,6 +501,11 @@ header {
 }
 
 /* Página de Receita */
+.card-link {
+  color: var(--faded-brown);
+  text-decoration: none;
+}
+
 .card-receita {
   display: flex;
   width: 940px;
