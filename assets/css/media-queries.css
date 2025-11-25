@@ -1,0 +1,29 @@
+@media (max-width: 600px) {
+  /*index.html*/
+  .banner-best-recipes h1 {
+    font-size: 57px;
+  }
+
+  .banner-best-recipes h3 {
+    font-size: 30px;
+  }
+
+  .grid-categorias {
+    gap: 30px;
+  }
+
+  /*detalhes.html*/
+  .detalhes-receita {
+    font-size: 18px;
+  }
+
+  .informacoes-adicionais-receita {
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .custo-cozinha {
+    margin: 0;
+  }
+}

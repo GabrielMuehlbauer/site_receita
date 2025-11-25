@@ -1,10 +1,13 @@
-// --- BANCO DE DADOS LOCAL (Array de Objetos) ---
+// ============================================================================
+// 1. BANCO DE DADOS LOCAL (Array de Objetos)
+// ============================================================================
 const listaReceitas = [
     {
         id: 1,
         titulo: "Frango Assado de Domingo",
         descricao: "Frango assado inteiro e descomplicado",
         categoria: "Almoço de Domingo",
+        destaque: true, // Receita em destaque
         dificuldade: "Fácil",
         tempo: "30min",
         imagem: "assets/images/frango-assado.png",
@@ -19,6 +22,7 @@ const listaReceitas = [
         titulo: "Bolo de Chocolate",
         descricao: "O clássico bolo fofinho com cobertura",
         categoria: "Bolos & Tortas",
+        destaque: true, // Receita em destaque
         dificuldade: "Médio",
         tempo: "45min",
         imagem: "assets/images/bolo-de-chocolate.webp",
@@ -103,6 +107,7 @@ const listaReceitas = [
         titulo: "Costelinha Barbecue",
         descricao: "Costelinha suína na Air Fryer",
         categoria: "Carnes / Air Fryer",
+        destaque: true, // Receita em destaque
         dificuldade: "Médio",
         tempo: "40min",
         imagem: "assets/images/costelinha-de-porco.webp",
@@ -130,7 +135,7 @@ const listaReceitas = [
         id: 10,
         titulo: "Batata Rústica",
         descricao: "Batatas com alecrim crocantes",
-        categoria: "Acompanhamento",
+        categoria: "Air Fryer",
         dificuldade: "Fácil",
         tempo: "25min",
         imagem: "assets/images/batata-rustica.webp",
@@ -201,6 +206,7 @@ const listaReceitas = [
         titulo: "Torta de Limão",
         descricao: "Sobremesa clássica com merengue",
         categoria: "Sobremesas",
+        destaque: true, // Receita em destaque
         dificuldade: "Médio",
         tempo: "40min",
         imagem: "assets/images/torta-limao.jpg",
@@ -212,32 +218,35 @@ const listaReceitas = [
     }
 ];
 
-// --- FUNÇÃO: Exibir Categorias na HOME (index.html) ---
+// ============================================================================
+// 2. FUNÇÃO PARA EXIBIR CATEGORIAS NA HOME (index.html)
+// ============================================================================
 function carregarCategoriasHome() {
+    // Procura o container das categorias na tela
     const container = document.getElementById("container-categorias");
     
-    // Se não achar o container, estamos em outra página, então para.
+    // Se não encontrar, significa que não estamos na Home, então para a função.
     if (!container) return;
 
     container.innerHTML = "";
-
-    // 1. Extrair categorias únicas da lista de receitas
     const categoriasUnicas = [];
+
+    // Varre todas as receitas para descobrir quais categorias existem
     listaReceitas.forEach(receita => {
-        // Verifica se já adicionamos essa categoria
-        const existe = categoriasUnicas.find(c => c.nome === receita.categoria);
+        // Separa categorias compostas (ex: "Carnes / Air Fryer" vira ["Carnes", "Air Fryer"])
+        const cats = receita.categoria.split(' / ');
         
-        if (!existe) {
-            categoriasUnicas.push({
-                nome: receita.categoria,
-                imagem: receita.imagem // Usa a imagem da primeira receita encontrada como capa
-            });
-        }
+        cats.forEach(c => {
+            const nome = c.trim(); // Remove espaços em branco extras
+            // Se essa categoria ainda não foi adicionada à lista, adiciona agora
+            if (!categoriasUnicas.find(item => item.nome === nome)) {
+                categoriasUnicas.push({ nome: nome, imagem: receita.imagem });
+            }
+        });
     });
 
-    // 2. Criar o HTML para cada categoria
+    // Cria o HTML (os cards) para cada categoria encontrada
     categoriasUnicas.forEach(cat => {
-        // Ao clicar, vai para receitas.html filtrando pela categoria
         container.innerHTML += `
             <a href="receitas.html?categoria=${encodeURIComponent(cat.nome)}" class="card-link">
                 <div class="categoria-card">
@@ -249,22 +258,31 @@ function carregarCategoriasHome() {
     });
 }
 
-// --- FUNÇÃO: Exibir Receitas (receitas.html) ---
+// ============================================================================
+// 3. FUNÇÃO PARA EXIBIR RECEITAS (receitas.html)
+// ============================================================================
 function exibirReceitas(receitasParaMostrar) {
     const container = document.getElementById("container-receitas");
+    
+    // Se não tem container, não estamos na página de receitas
     if (!container) return;
 
     container.innerHTML = "";
 
+    // Se a lista estiver vazia (nenhum resultado encontrado)
     if (receitasParaMostrar.length === 0) {
         container.innerHTML = "<p>Nenhuma receita encontrada.</p>";
         return;
     }
 
+    // Gera o card de cada receita
     receitasParaMostrar.forEach(receita => {
-        const cardHTML = `
+        // Se for destaque, pode adicionar uma classe extra (opcional)
+        const classeDestaque = receita.destaque ? "card-destaque" : "";
+        
+        container.innerHTML += `
             <a href="detalhes.html?id=${receita.id}" class="card-link">
-                <div class="card-receita">
+                <div class="card-receita ${classeDestaque}">
                     <div class="card-receita-content">
                         <img src="${receita.imagem}" alt="${receita.titulo}">
                         <h1>${receita.titulo}</h1>
@@ -277,20 +295,26 @@ function exibirReceitas(receitasParaMostrar) {
                 </div>
             </a>
         `;
-        container.innerHTML += cardHTML;
     });
 }
 
-// --- FUNÇÃO: Detalhes da Receita (detalhes.html) ---
+// ============================================================================
+// 4. FUNÇÃO PARA EXIBIR DETALHES DA RECEITA (detalhes.html)
+// ============================================================================
 function carregarDetalhesReceita() {
+    // Verifica se estamos na página de detalhes procurando por um elemento exclusivo dela
     const tituloDetalhe = document.getElementById("detalhe-titulo");
-    if (!tituloDetalhe) return; // Não estamos na página detalhes
+    if (!tituloDetalhe) return;
 
+    // Pega o ID da receita que está na URL (ex: detalhes.html?id=5)
     const params = new URLSearchParams(window.location.search);
-    const idReceita = params.get("id");
-    const receita = listaReceitas.find(r => r.id == idReceita);
+    const id = params.get("id");
+    
+    // Busca a receita correspondente no nosso "Banco de Dados"
+    const receita = listaReceitas.find(r => r.id == id);
 
     if (receita) {
+        // Preenche os textos e imagens na tela
         document.getElementById("detalhe-imagem").src = receita.imagem;
         document.getElementById("detalhe-titulo").textContent = receita.titulo;
         document.getElementById("detalhe-descricao").textContent = receita.descricao;
@@ -301,86 +325,134 @@ function carregarDetalhesReceita() {
         document.getElementById("detalhe-custo").textContent = receita.custo;
         document.getElementById("detalhe-cozinha").textContent = receita.cozinha;
 
-        const ulIngredientes = document.getElementById("detalhe-lista-ingredientes");
-        ulIngredientes.innerHTML = "";
-        receita.ingredientes.forEach(item => ulIngredientes.innerHTML += `<li>${item}</li>`);
+        // Preenche a lista de ingredientes
+        const ul = document.getElementById("detalhe-lista-ingredientes");
+        ul.innerHTML = "";
+        receita.ingredientes.forEach(ing => ul.innerHTML += `<li>${ing}</li>`);
 
-        const divPreparo = document.getElementById("detalhe-modo-preparo");
-        divPreparo.innerHTML = "";
-        receita.preparo.forEach((passo, index) => divPreparo.innerHTML += `<p>${index + 1}. ${passo}</p>`);
+        // Preenche o modo de preparo
+        const divPrep = document.getElementById("detalhe-modo-preparo");
+        divPrep.innerHTML = "";
+        receita.preparo.forEach((passo, i) => divPrep.innerHTML += `<p>${i + 1}. ${passo}</p>`);
     } else {
-        document.querySelector(".receita-content").innerHTML = "<h1>Receita não encontrada :(</h1>";
+        document.querySelector(".receita-content").innerHTML = "<h1>Receita não encontrada.</h1>";
     }
 }
 
-// --- LÓGICA DE PESQUISA E FILTROS ---
+// ============================================================================
+// 5. LÓGICA DE PESQUISA GLOBAL
+// ============================================================================
 const barraPesquisa = document.querySelector(".barra-pesquisa");
 const btnBuscar = document.querySelector(".search-container button");
 
+// Função central que decide o que fazer quando busca
+function realizarBusca() {
+    const termo = barraPesquisa.value.trim();
+    if (!termo) return; // Se vazio, não faz nada
+
+    const containerReceitas = document.getElementById("container-receitas");
+
+    if (containerReceitas) {
+        // Se já estamos na página de receitas, apenas filtra a lista atual
+        filtrarReceitas();
+    } else {
+        // Se estamos em outra página, redireciona levando o termo pesquisado
+        window.location.href = `receitas.html?busca=${encodeURIComponent(termo)}`;
+    }
+}
+
+// Função que faz a filtragem real dos dados
 function filtrarReceitas() {
     const termo = barraPesquisa.value.toLowerCase();
     const receitasFiltradas = listaReceitas.filter(receita => {
         return receita.titulo.toLowerCase().includes(termo) || 
                receita.categoria.toLowerCase().includes(termo) ||
-               receita.ingredientes.some(ing => ing.toLowerCase().includes(termo)); // Busca até nos ingredientes!
+               receita.ingredientes.some(ing => ing.toLowerCase().includes(termo));
     });
     exibirReceitas(receitasFiltradas);
 }
 
-// --- INICIALIZAÇÃO GERAL ---
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Carrega Categorias se estiver na Home
-    carregarCategoriasHome();
+// Eventos da barra de pesquisa (Botão e Enter)
+if (btnBuscar) {
+    btnBuscar.addEventListener("click", (e) => {
+        e.preventDefault();
+        realizarBusca();
+    });
+}
 
-    // 2. Carrega Detalhes se estiver na página de detalhes
+if (barraPesquisa) {
+    barraPesquisa.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            realizarBusca();
+        }
+    });
+    
+    // (Opcional) Filtra em tempo real se já estiver na página de lista
+    barraPesquisa.addEventListener("input", () => {
+        if (document.getElementById("container-receitas")) {
+            filtrarReceitas();
+        }
+    });
+}
+
+// ============================================================================
+// 6. INICIALIZAÇÃO (Roda quando a página carrega)
+// ============================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    // Tenta carregar coisas da Home
+    carregarCategoriasHome();
+    
+    // Tenta carregar detalhes da receita
     carregarDetalhesReceita();
 
-    // 3. Se estiver na página de Receitas, verifica se tem Filtro de Categoria ou Busca Normal
+    // Se estiver na página de listagem de receitas, verifica filtros na URL
     const containerReceitas = document.getElementById("container-receitas");
     if (containerReceitas) {
         const params = new URLSearchParams(window.location.search);
         const categoriaUrl = params.get("categoria");
+        const buscaUrl = params.get("busca");
+        const destaqueUrl = params.get("destaque");
 
-        if (categoriaUrl) {
-            // Filtra pela categoria vinda da URL (clique na Home)
-            const filtradas = listaReceitas.filter(r => r.categoria === categoriaUrl);
+        if (destaqueUrl) {
+            // Filtra apenas os destaques (clique no banner da home)
+            const destaques = listaReceitas.filter(r => r.destaque === true);
+            exibirReceitas(destaques);
+            if(barraPesquisa) barraPesquisa.placeholder = "Exibindo Destaques...";
+
+        } else if (categoriaUrl) {
+            // Filtra pela categoria (clique no card da home)
+            const filtradas = listaReceitas.filter(r => r.categoria.includes(categoriaUrl));
             exibirReceitas(filtradas);
-            // Opcional: Preencher a barra de pesquisa para mostrar o que está sendo filtrado
-            if(barraPesquisa) barraPesquisa.value = categoriaUrl;
+            if (barraPesquisa) barraPesquisa.value = categoriaUrl;
+        
+        } else if (buscaUrl) {
+            // Filtra pela busca (vinda de outra página)
+            if (barraPesquisa) barraPesquisa.value = buscaUrl;
+            filtrarReceitas();
+        
         } else {
-            // Mostra tudo
+            // Se não tiver filtro nenhum, mostra todas
             exibirReceitas(listaReceitas);
         }
     }
-
-    // 4. Ativa eventos de busca
-    if (btnBuscar) {
-        btnBuscar.addEventListener("click", (e) => {
-            e.preventDefault();
-            // Se estiver na Home e buscar, redireciona para receitas (opcional, mas recomendado)
-            if (!document.getElementById("container-receitas")) {
-                window.location.href = `receitas.html?busca=${barraPesquisa.value}`;
-            } else {
-                filtrarReceitas();
-            }
-        });
-    }
-    
-    if (barraPesquisa) {
-        barraPesquisa.addEventListener("input", filtrarReceitas);
-    }
 });
 
-// Lógica do Menu Lateral (Mantida)
+// ============================================================================
+// 7. LÓGICA DO MENU LATERAL
+// ============================================================================
 const sideMenu = document.querySelector(".side-menu");
 const menuButton = document.querySelector(".menu-button");
+
 if (menuButton) {
     menuButton.addEventListener("click", () => {
         sideMenu.style.left = sideMenu.style.left === "0px" ? "-340px" : "0px";
     });
+
     document.addEventListener("click", (event) => {
         const isClickInsideMenu = sideMenu.contains(event.target);
         const isClickOnMenuButton = menuButton.contains(event.target);
+
         if (sideMenu.style.left === "0px" && !isClickInsideMenu && !isClickOnMenuButton) {
             sideMenu.style.left = "-340px";
         }

@@ -243,6 +243,7 @@ input {
 
 .admin-content {
   max-width: 940px;
+  min-width: 200px;
   margin: 0 20px;
 }
 
@@ -361,7 +362,6 @@ header {
 .search-container {
   display: flex;
   align-items: center;
-  /* Faz o container da busca crescer para ocupar o espaço disponível */
   flex-grow: 1;
 }
 
@@ -409,7 +409,13 @@ header {
 
 .main-content {
   max-width: 940px;
+  min-width: 200px;
   margin: 0 20px;
+}
+
+.banner-link {
+  text-decoration: none; 
+  color: inherit;
 }
 
 .banner-best-recipes {
@@ -490,13 +496,15 @@ header {
   text-align: left;
   float: left;
   text-transform: uppercase;
+  margin-right: 8px;
 }
 
 .categoria-card img {
   object-fit: cover;
   border: 1px solid var(--faded-brown);
   border-radius: 10px 20px 20px 10px;
-  width: 45%;
+  max-width: 45%;
+  min-width: 5%;
   height: 100%;
 }
 
@@ -508,7 +516,7 @@ header {
 
 .card-receita {
   display: flex;
-  width: 940px;
+  max-width: 940px;
   background-color: var(--light-gray);
   border: 1px solid var(--light-orange);
   border-radius: 30px;
@@ -548,7 +556,7 @@ header {
 /* Página Detalhes */
 .receita {
   display: flex;
-  width: 940px;
+  max-width: 940px;
   background-color: var(--light-gray);
   border: 1px solid var(--light-orange);
   border-radius: 30px;
