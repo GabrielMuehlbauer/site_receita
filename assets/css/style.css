@@ -726,3 +726,29 @@ header {
 .estrelas input[type="radio"]:checked + label ~ label {
   color: var(--faded-brown);
 }
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--pastel-grayish-orange);
+  margin-top: 45px;
+}
+
+.footer-content {
+  text-align: center;
+  color: var(--faded-brown);
+  margin: 70px 0;
+}
+
+.footer-content p {
+  font-family: "Inclusive Sans";
+  font-size: 16px;
+  padding-bottom: 8px;
+}
+
+.footer-content h1 {
+  font-family: "Anton";
+  font-size: 30px;
+}
